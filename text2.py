@@ -1,7 +1,8 @@
 #!/bin/bash
+
 import re
 
-html_doc = """
+html_data = """
 <html>
     <head>
         <title>
@@ -21,13 +22,9 @@ html_doc = """
 """
 
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(html_doc, 'html.parser')
+soup = BeautifulSoup(html_data, 'html.parser')
 for tag in soup.find_all(re.compile("^b")):
     print tag.name
 links = soup.find_all('a')
 for link in links:
     print link
-
-import text
-
-text.funcname(1,2,d=3)

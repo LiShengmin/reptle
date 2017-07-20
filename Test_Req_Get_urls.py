@@ -1,6 +1,8 @@
 import urllib2, re
 from lxml import etree
 
+# 这是一个爬虫爬取 某个站所有URL的。 欢迎大家提iccess
+
 baseURL =  'https://www.nvshens.com'
 header = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
@@ -117,8 +119,6 @@ def links_add_baseurl(links, url):
         newLinks.append(baseURL + link)
     return newLinks
 
-
-
 class Sliper: 
     def __init__(self,url):
         self.linkQuence = linkQuence()   #引入linkQuence类
@@ -173,29 +173,4 @@ def main():
     sliper = Sliper(baseURL)
     print sliper.caw(2)
 
-
 main()
-
-
-
-
-
-
-
-
-
-# #connect to a URL
-# url = 'https://www.nvshens.com/'
-
-# website = urllib2.urlopen(url)
-# #read html code
-# html = website.read()
-# #use re.findall to get all the links
-# links = re.findall('"((http|ftp)s?://.*?)"', html)
-# for link in links:
-#     print link
-
-
-
-
-
