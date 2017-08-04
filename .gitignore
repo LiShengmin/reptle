@@ -25,6 +25,16 @@ xcuserdata/
 ## Python apecific
 *.pyc
 
+## Image
+*.jpg
+*.png
+*.jpeg
+
+## Video
+*.mp4
+*.avi
+*.rmvb
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa

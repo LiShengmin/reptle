@@ -7,4 +7,5 @@ def func_a(*ps):
 def func_b(func, num1):
     func(num1, num1,  4)
 
-func_b(func_a, 1)
+if __name__ == "__main__":
+    func_b(func_a, 1)

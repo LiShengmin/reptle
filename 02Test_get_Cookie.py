@@ -16,12 +16,11 @@ def getCookie(url):
     for item in cookie:
         print item.name + '    :      ' + item.value
 
-getCookie('http://www.zngirls.com/g/23209')
+if __name__ == "__main__":
+    getCookie('http://www.zngirls.com/g/23209')
 
-getCookie('http://www.baidu.com')
+    getCookie('http://www.baidu.com')
 
-
-
-request = urllib2.Request("http://www.zngirls.com/g/23209")
-opener = urllib2.build_opener(urllib2.HTTPHandler(debuglevel=1))#为了开启回显，需要手动构造一个HTTPHandler
-feeddata = opener.open(request).read()
+    request = urllib2.Request("http://www.zngirls.com/g/23209")
+    opener = urllib2.build_opener(urllib2.HTTPHandler(debuglevel=1))#为了开启回显，需要手动构造一个HTTPHandler
+    feeddata = opener.open(request).read()
