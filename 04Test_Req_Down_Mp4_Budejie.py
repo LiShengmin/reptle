@@ -25,7 +25,7 @@ def isHaveInOS(name):
     if len(tempname) < 3:
             n = name.encode('utf8')
             tempname = "{0}".format(n)
-    for dir in os.listdir(path):       
+    for dir in os.listdir(path):
         if dir == tempname :
             return True
     return False
