@@ -35,11 +35,17 @@ xcuserdata/
 *.avi
 *.rmvb
 
+## mp3
+*.mp3
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+## DB
+*.db
 
 # CocoaPods
 #

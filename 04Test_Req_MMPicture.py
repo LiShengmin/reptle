@@ -145,18 +145,3 @@ def downImage(name, referer, url_imgae):
 
 if __name__ == "__main__": 
     mmRankSum("https://www.nvshens.com/rank/sum/")
-# """
-# fl=open('list.txt', 'w')
-# for i in pciturelist:
-#     fl.write(i)
-#     fl.write("\n")
-# fl.close()
-# print '关机ing'
-# """
-# print 'finish'
-# system('shutdown -s')
-
-
-
-
-# downImage("MMpictre", "http://www.zngirls.com/g/23557", "https://t1.onvshen.com:85/gallery/24391/22732/cover/0.jpg")

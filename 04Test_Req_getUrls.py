@@ -3,7 +3,8 @@ from lxml import etree
 
 # 这是一个爬虫爬取 某个站所有URL的。 欢迎大家提iccess
 
-baseURL =  'https://www.nvshens.com'
+# baseURL =  'https://www.nvshens.com'
+baseURL =  "http://www.avtb002.com"
 header = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
             , "Connection": "keep-alive"
