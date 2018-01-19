@@ -1,10 +1,13 @@
+
+import sys
+sys.path.append('/usr/local/lib/python2.7/site-packages')
 import urllib2, re
-from lxml import etree
+# from lxml import etree
 
 # 这是一个爬虫爬取 某个站所有URL的。 欢迎大家提iccess
 
 # baseURL =  'https://www.nvshens.com'
-baseURL =  "http://www.avtb002.com"
+baseURL =  "http://www.avtb009.com"
 header = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
             , "Connection": "keep-alive"
@@ -45,6 +48,10 @@ class linkQuence:
         if new_url is None:
             return
         self.unvisited_urls.append(new_url)
+
+    def add_unvisited_list_with_links(self, links):
+        for link in links:
+            self.add_unvisited_list(link)
 
     def remove_visited(self, rm_url):
         self.visited_urls.remove(rm_url)
@@ -140,7 +147,7 @@ class Sliper:
         '''
         获取某个url的所有链接
         '''
-        print "获取当前页面的所有 Href 链接:"+ url
+        # print "获取当前页面的所有 Href 链接:"+ url
         req = urllib2.Request(baseURL, headers=header)
         html = urllib2.urlopen(req)
         htmldata = html.read()
@@ -154,8 +161,8 @@ class Sliper:
         while self.current_deepth < crawl_deepth:
             #TODO :这里会形成一个死循环～不能做到深度控制，这里需要控制下  
             pageList = self.linkQuence.get_unvisited_list()
-
-            for page in pageList:
+            tempList = pageList[:]
+            for page in tempList:
                 self.linkQuence.add_visited_list(page)
 
                 loading_url = page
@@ -163,15 +170,20 @@ class Sliper:
                     continue
                 self.linkQuence.add_visited_list(loading_url)
                 links = self.get_PageLinks(loading_url)
-                for link in links:
-                    self.linkQuence.add_unvisited_list(link)
+                dPrintLinks("获取到的连接为", links, "层级{}".format(crawl_deepth-1))
+                self.linkQuence.add_unvisited_list_with_links(links)
+                self.linkQuence.pop_unvisited()
 
-            print '获取到的链接总数为'+len(self.linkQuence.get_unvisited_list())
+            print 'links.len is {} by link {}'.format(len(self.linkQuence.get_unvisited_list()), page)
             self.current_deepth += 1
         return self.linkQuence.visited_urls
 
+def dPrintLinks(beginStr, links, lastStr):
+    for link in links:
+        print '{} {} {}'.format(beginStr, link, lastStr)
+
 def main():
     sliper = Sliper(baseURL)
-    print sliper.caw(2)
+    print sliper.caw(3)
 
 main()

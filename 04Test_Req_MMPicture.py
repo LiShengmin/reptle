@@ -1,6 +1,8 @@
 
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
+import sys
+sys.path.append('/usr/local/lib/python2.7/site-packages')
 import  urllib2
 from lxml import etree
 from os import system
@@ -122,10 +124,11 @@ def savePictures(itemPagesurl):
         pciturelist.append(pages[i])
         referer = 'https://www.nvshens.com/g'+itemPagesurl[-6:]
         print 'referer:'+referer
-        try:
-            downImage(names[i], referer, pages[i])
-        except Exception :
-            pass
+        # try:
+        downImage(names[i], referer, pages[i])
+        # except Exception: 
+            # print 'Exception: error'
+            # pass
 
 def downImage(name, referer, url_imgae):
     headers = {
@@ -135,7 +138,8 @@ def downImage(name, referer, url_imgae):
                 'Accept-Language':"zh-CN,zh;q=0.8",
                 "Referer": referer,
             }
-    req = urllib2.Request(url_imgae, headers=headers)
+    # req = urllib2.Request(url_imgae, headers=headers)
+    req = urllib2.Request(url_imgae)
     urlhtml = urllib2.urlopen(req)
     respHtml = urlhtml.read()
     binfile = open(name + '.jpg' , "wb")
@@ -143,5 +147,12 @@ def downImage(name, referer, url_imgae):
     binfile.write(respHtml)
     binfile.close()
 
-if __name__ == "__main__": 
-    mmRankSum("https://www.nvshens.com/rank/sum/")
+# if __name__ == "__main__": 
+    # mmRankSum("https://www.nvshens.com/rank/sum/")
+
+
+
+downWebImagesUrl = 'https://www.nvshens.com/g/22979/1.html'
+downWebIamgesUrl_02 = 'https://www.nvshens.com/girl/16075/gallery/#p4'
+downWebImageUrl_03 = 'https://www.nvshens.com/g/18651/'
+getPagePicturess(downWebImageUrl_03)

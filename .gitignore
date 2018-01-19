@@ -29,14 +29,27 @@ xcuserdata/
 *.jpg
 *.png
 *.jpeg
+*.psd
 
 ## Video
 *.mp4
+*.mpeg
 *.avi
 *.rmvb
 
+## Text
+*.text
+*.txt
+
 ## mp3
 *.mp3
+*.acc
+
+## DB
+*.db
+
+## iCloud
+*.icloud 
 
 ## Obj-C/Swift specific
 *.hmap
